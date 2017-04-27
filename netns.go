@@ -1,3 +1,5 @@
+// +build linux
+
 // Package netns allows ultra-simple network namespace handling. NsHandles
 // can be retrieved and set. Note that the current namespace is thread
 // local so actions that set and reset namespaces should use LockOSThread
@@ -12,10 +14,6 @@ import (
 	"fmt"
 	"syscall"
 )
-
-// NsHandle is a handle to a network namespace. It can be cast directly
-// to an int and used as a file descriptor.
-type NsHandle int
 
 // Equal determines if two network handles refer to the same network
 // namespace. This is done by comparing the device and inode that the
